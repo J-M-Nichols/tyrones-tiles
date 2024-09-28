@@ -1,33 +1,33 @@
+import tileSize from "./tileSize"
+
 /**
- * must be an even length from 4 to 26
- * 4 : 2 - 2
- * 6 : 3 - 3
- * 8 : 4 - 4
- * 10 : 5 - 5
- * 12 : 4 - 4 - 4
- * 14 : 5 - 5 - 4
- * 16 : 4 - 4 - 4 - 4
- * 18 : 6 - 6 - 6
- * 20 : 5 - 5 - 5 - 5
- * 22 : 6 - 6 - 5 - 5
- * 24 : 6 - 6 - 6 - 6
+ * Generates a multidimensional array with a row length based on the current screen width.
+ * Must be an even length from 4 to 26.
  * 
  * @param {Array} array 
  */
 const createMultidimensionalArray = array => {
     const length = array.length
+
     //ensure length is acceptable
     if(length < 4 || length > 26 || length % 2 !== 0) throw new Error(`Array must have an even length of 4 to 26 : found ${length}`)
     
-    // get rows
-    let rows
-    if(length < 12) rows = 2
-    else if (length < 20 && length !== 16) rows = 3
-    else rows = 4
+    // get the width of the screen
+    const screenWidth = window.innerWidth
+
+    // get the number of elements per row at a maximum of 6 tiles per row based on the width of the screen and 2 times the tile size 
+    const elementsPerRow = Math.min(Math.floor(screenWidth / (tileSize * 2)), 6)
+
+    // get rows based on the number of elements divided by how many elements can be on that row with a minimum of 2
+    const rows = Math.max(2, Math.ceil(length / elementsPerRow))
 
     //create the multidimensional array
     const result = []
+    
+    //how many columns do we need for the rows
     const baseCols = Math.floor(length / rows)
+
+    //how many extra tiles do we need to add
     const remainder = length%rows
 
     let start = 0

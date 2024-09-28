@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Home from "./components/Home";
-import Casual from "./components/Casual";
+import Casual from "./components/game/Casual";
 
 function App() {
   return (

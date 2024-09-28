@@ -17,13 +17,12 @@ const NavigationBar = _ => {
                 to='/'
             >
                 <img 
-                    className="img-fluid m-auto"
+                    className="img-fluid m-auto pixelated"
                     src={`${process.env.PUBLIC_URL}/Tyrone.gif`}
                     alt="Tyrone Osaurus Rex"
                     style={{
                         width:'40px',
                         height:'40px',
-                        imageRendering:'pixelated'
                     }}
                 />
                 <span 

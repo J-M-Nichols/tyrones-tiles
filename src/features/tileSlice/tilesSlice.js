@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     flippedCount: 0,
     canFlip: true,
-    tiles: []
+    tiles: [],
+    isComplete: false,
 }
 
 const tilesSlice = createSlice({
@@ -17,6 +18,7 @@ const tilesSlice = createSlice({
             state.tiles = payload
             state.flippedCount = 0
             state.canFlip = true
+            state.isComplete = false
         },
         flipTile: (state, {payload})=>{
             const {row, col} = payload
@@ -24,7 +26,10 @@ const tilesSlice = createSlice({
             state.tiles[row][col].flipped = !state.tiles[row][col].flipped
         },
         addFlippedCount: state => {
-            state.flippedCount += 2
+            const flippedCount = state.flippedCount + 2
+            
+            state.flippedCount = flippedCount
+            state.isComplete = flippedCount === state.tiles.reduce((accumulator, subArray) => accumulator + subArray.length, 0)
         }
     }
 })

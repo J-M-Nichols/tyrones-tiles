@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux"
-import generateImageArray from "../generator/generateImageArray"
-import Tile from "./tile/Tile"
+import generateImageArray from "../../../generator/generateImageArray"
+import Tile from "./Tile"
 import { useEffect } from "react"
-import { setTiles } from "../features/tileSlice/tilesSlice"
+import { setTiles } from "../../../features/tileSlice/tilesSlice"
 
 const TileMatch = _ => {
     const {tiles} = useSelector(state=>state.tiles)
+    const {gameSize} = useSelector(state=>state.game)
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(setTiles(generateImageArray(13)))
-    },[dispatch])
+        dispatch(setTiles(generateImageArray(gameSize)))
+    },[dispatch, gameSize])
 
     return (
         <section
@@ -20,7 +21,7 @@ const TileMatch = _ => {
                 return (
                     <div
                         key={rowIndex}
-                        className="d-flex gap-3"
+                        className="d-flex gap-3 m-auto"
                     >
                         {row.map((col, colIndex)=>{
                             return (

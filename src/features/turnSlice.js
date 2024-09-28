@@ -9,7 +9,7 @@ const turnSlice = createSlice({
     initialState,
     reducers:{
         incrementTurn:state=>{
-            state.turn+=1
+            state.turn++
         },
         resetTurn:state=>{
             state.turn=0
