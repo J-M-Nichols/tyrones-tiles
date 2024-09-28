@@ -27,9 +27,14 @@ const createMultidimensionalArray = array => {
 
     //create the multidimensional array
     const result = []
-    const cols = length / rows
+    const baseCols = Math.floor(length / rows)
+    const remainder = length%rows
+
+    let start = 0
     for(let i = 0; i < rows; i++) {
-        result.push(array.slice(i * cols, (i+1) * cols))
+        const end = start + baseCols + (i<remainder ? 1 : 0)
+        result.push(array.slice(start, end))
+        start = end
     }
 
     return result

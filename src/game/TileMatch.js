@@ -9,7 +9,7 @@ const TileMatch = _ => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(setTiles(generateImageArray(3)))
+        dispatch(setTiles(generateImageArray(13)))
     },[dispatch])
 
     return (
