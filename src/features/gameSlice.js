@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import challengeSize from "../helpers/challengeSize"
 
 const initialState = {
     gameSize:2,
@@ -14,9 +15,11 @@ const gameSlice = createSlice({
             state.gameSize = 2
         },
         nextLevel: state=>{
-            const level = state.level + 1
+            const level = state.gameLevel + 1
+            const index = Math.floor(level/challengeSize)
+            
+            state.gameSize = index+2
             state.gameLevel = level
-            state.gameSize = (level%10)+2
         },
         setSize: (state, {payload})=>{
             state.gameSize = payload

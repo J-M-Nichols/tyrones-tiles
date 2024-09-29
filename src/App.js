@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setTiles } from "./features/tileSlice/tilesSlice";
 import Challenge from "./components/game/Challenge";
+import { handleChallengeGameStart } from "./features/handleGame";
 
 function App() {
   const location = useLocation()
@@ -13,7 +14,7 @@ function App() {
 
   useEffect(()=>{
     if(location.pathname==='/casual') dispatch(setTiles([]))
-    
+    if(location.pathname==='/challenge') dispatch(handleChallengeGameStart())
   },[location.pathname, dispatch])
 
   return (

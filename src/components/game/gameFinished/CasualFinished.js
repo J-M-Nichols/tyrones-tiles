@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
-import gameSizes from "../../../helpers/gameSizes"
 import { handleCasualGameStart } from "../../../features/handleGame"
+import { foodArray } from "../../../helpers/images"
 
 /**
  * Allows the player to select the size of the next casual game. 
@@ -28,7 +28,7 @@ const CasualFinished = _ => {
                 className="btn btn-danger"
                 onClick={()=>playNextGame(gameSize)}
             >Replay</button>
-            {gameSizes.map((size, index) => {
+            {foodArray.map((size, index) => {
                 return (
                     <button 
                         key={index}

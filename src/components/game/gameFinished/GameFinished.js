@@ -1,36 +1,22 @@
 import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { tyroneRunningImage } from '../../../helpers/images'
+import { AnimationDurationContext } from '../../../providers/animationDurationProvider'
 
 const GameFinished = ({button}) => {
     const {turn} = useSelector(state=>state.turn)
-    const [duration, setDuration] = useState(1)
-
-    useEffect(()=>{
-        const setAnimationDuration = _ => {
-            const screenWidth = window.innerWidth
-            setDuration(screenWidth / 400)
-        }
-
-        setAnimationDuration()
-
-        window.addEventListener('resize', setAnimationDuration)
-
-        return _ => {
-            window.removeEventListener('resize', setAnimationDuration)
-        }
-    }, [])
+    const {runDuration} = useContext(AnimationDurationContext)
 
     return (        
         <div
-            className='fixed-center w-50 border border-success border-5'
+            className='fixed-center bg-warning w-50 border rounded border-success border-5'
             style={{
                 maxHeight:'75%'
             }}
         >
 
             <div 
-                className="card bg-warning custom-scrollbar-css" 
+                className="card custom-scrollbar-css bg-transparent border-0" 
                 style={{
                     maxHeight:'75vh'
                 }}
@@ -43,7 +29,7 @@ const GameFinished = ({button}) => {
                         className="pixelated move-right" 
                         alt="Tyrone running"
                         style={{
-                            animationDuration:`${duration}s`
+                            animationDuration:`${runDuration}s`
                         }}
                     />
                 </div>

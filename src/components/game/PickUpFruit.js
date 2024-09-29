@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AnimationDurationContext } from '../../providers/animationDurationProvider'
 import { useSelector } from 'react-redux'
-import { fruitImages, tyroneHurtImage, tyroneIdleImage, tyroneRunningImage } from '../../helpers/images'
+import { foodImages, tyroneHurtImage, tyroneIdleImage, tyroneRunningImage } from '../../helpers/images'
 import { treesImage } from '../../helpers/images'
 
 const PickUpFruit = _ => {
@@ -24,9 +24,9 @@ const PickUpFruit = _ => {
                 }}
             />
             <img 
-                src={fruitImages[fruitIndex]}
+                src={foodImages[fruitIndex]}
                 className={`pixelated pick-up-fruit-item ${animateClass}`}
-                alt='fruit'
+                alt='food'
                 style={{
                     animationDuration:`${animationDuration}s`
                 }}

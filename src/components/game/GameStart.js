@@ -1,5 +1,4 @@
-import {tyroneIdleImage} from '../../helpers/images'
-import gameSizes from '../../helpers/gameSizes'
+import {foodArray, tyroneIdleImage} from '../../helpers/images'
 import { useDispatch } from 'react-redux'
 import { handleCasualGameStart } from '../../features/handleGame'
 
@@ -12,14 +11,14 @@ const GameStart = _ => {
 
     return (    
         <div
-            className='fixed-center w-50 h-75 border border-success border-5'
+            className='fixed-center w-50 h-75 bg-warning border rounded border-success border-5'
             style={{
                 zIndex:1,
             }}
         >
 
             <div 
-                className="card mh-100 custom-scrollbar-css bg-warning" 
+                className="card mh-100 custom-scrollbar-css bg-transparent border-0" 
             >
                 <img 
                     src={tyroneIdleImage} 
@@ -39,7 +38,7 @@ const GameStart = _ => {
                     <div
                         className="d-flex flex-wrap gap-3 justify-content-center"
                     >
-                        {gameSizes.map((size, index) => {
+                        {foodArray.map((size, index) => {
                             return (
                                 <button 
                                     key={index}

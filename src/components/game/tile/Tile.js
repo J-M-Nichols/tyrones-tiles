@@ -37,11 +37,15 @@ const Tile = ({tile, index}) => {
                     className="tile btn btn-danger"
                 />
                 <div
-                    className="tile tile-back btn btn-danger"
+                    className="tile tile-back btn btn-danger p-0"
                 >
                     {
                         flipped?
-                            <img src={img} alt="tile" />
+                            <img 
+                                src={img} 
+                                alt="tile" 
+                                className='img-fluid w-100 h-100 pixelated'
+                            />
                         : <></>
                     }
                 </div>

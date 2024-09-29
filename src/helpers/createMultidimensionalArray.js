@@ -1,3 +1,4 @@
+import { foodObjects } from "./images"
 import tileSize from "./tileSize"
 
 /**
@@ -10,7 +11,7 @@ const createMultidimensionalArray = array => {
     const length = array.length
 
     //ensure length is acceptable
-    if(length < 4 || length > 26 || length % 2 !== 0) throw new Error(`Array must have an even length of 4 to 26 : found ${length}`)
+    if(length < 4 || length > (foodObjects.length*2) || length % 2 !== 0) throw new Error(`Array must have an even length of 4 to 26 : found ${length}`)
     
     // get the width of the screen
     const screenWidth = window.innerWidth

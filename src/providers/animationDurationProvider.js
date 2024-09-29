@@ -4,26 +4,29 @@ const AnimationDurationContext = createContext()
 
 const AnimationDurationProvider = ({children}) => {
     const [animationDuration, setAnimationDuration] = useState(1)
-    
+    const [runDuration, setRunDuration] = useState(1)
+
     useEffect(()=>{
-        const updateAnimationDuration = _ => {
+        const updateDuration = _ => {
             const screenWidth = window.innerWidth
             setAnimationDuration(screenWidth / 100)
+            setRunDuration(screenWidth/400)
         }
 
-        updateAnimationDuration()
+        updateDuration()
 
-        window.addEventListener('resize', updateAnimationDuration)
+        window.addEventListener('resize', updateDuration)
 
         return _ => {
-            window.removeEventListener('resize', updateAnimationDuration)
+            window.removeEventListener('resize', updateDuration)
         }
     }, [])
 
     return (
         <AnimationDurationContext.Provider 
             value={{
-                animationDuration
+                animationDuration,
+                runDuration
             }}
         >
             {children}
