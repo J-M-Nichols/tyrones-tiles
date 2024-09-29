@@ -6,11 +6,10 @@ import { activateAnimation, activateDisplayHurt } from "../pickUpFruit/pickUpFru
 
 export const handleMove = createAsyncThunk(
     'tiles/handleMove',
-    async (payload, {getState, dispatch}) => {
+    async ({index, flipped, type, animationDuration}, {getState, dispatch}) => {
         const state = getState()
         const {canFlip} = state.tiles
         const {flippedTileIndex, flippedType} = state.flippedTileIndex
-        const {index, flipped, type, animationDuration} = payload
 
         // check if we are clicking a tile that is already flipped
         if(flipped || !canFlip || flippedTileIndex===index) return
@@ -31,9 +30,12 @@ export const handleMove = createAsyncThunk(
         else if(flippedType===type){ 
             dispatch(addFlippedCount())
             dispatch(resetFlippedTileIndex())
-            dispatch(activateAnimation(animationDuration))
+            dispatch(activateAnimation({
+                animationDuration, 
+                fruitIndex:type
+            }))
         }
-        //the types do not match, turn off canFlip for 2 seconds then flip both
+        //the types do not match, turn off canFlip for 1 second then flip both back
         else{
             dispatch(setCanFlip(false))
             dispatch(activateDisplayHurt())
@@ -44,7 +46,7 @@ export const handleMove = createAsyncThunk(
                 dispatch(flipTile(flippedTileIndex))
 
                 dispatch(resetFlippedTileIndex())
-            }, 2000)
+            }, 1000)
         }
     }
 )

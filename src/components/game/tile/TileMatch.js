@@ -1,17 +1,8 @@
-import { useDispatch, useSelector } from "react-redux"
-import generateImageArray from "../../../generator/generateImageArray"
+import { useSelector } from "react-redux"
 import Tile from "./Tile"
-import { useEffect } from "react"
-import { setTiles } from "../../../features/tileSlice/tilesSlice"
 
 const TileMatch = _ => {
     const {tiles} = useSelector(state=>state.tiles)
-    const {gameSize} = useSelector(state=>state.game)
-    const dispatch = useDispatch()
-
-    useEffect(()=>{
-        dispatch(setTiles(generateImageArray(gameSize)))
-    },[dispatch, gameSize])
 
     return (
         <section

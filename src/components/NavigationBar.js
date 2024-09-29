@@ -1,5 +1,6 @@
 import { Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { tyroneIdleImage } from '../helpers/images'
 
 const NavigationBar = _ => {
     
@@ -18,7 +19,7 @@ const NavigationBar = _ => {
             >
                 <img 
                     className="img-fluid m-auto pixelated"
-                    src={`${process.env.PUBLIC_URL}/Tyrone.gif`}
+                    src={tyroneIdleImage}
                     alt="Tyrone Osaurus Rex"
                     style={{
                         width:'40px',

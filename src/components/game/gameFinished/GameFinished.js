@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import tyroneRunning from '../../../images/TyroneRunning.gif'
 import { useState, useEffect } from 'react'
+import { tyroneRunningImage } from '../../../helpers/images'
 
 const GameFinished = ({button}) => {
     const {turn} = useSelector(state=>state.turn)
@@ -23,17 +23,23 @@ const GameFinished = ({button}) => {
 
     return (        
         <div
-            className='fixed-center w-50'
+            className='fixed-center w-50 border border-success border-5'
+            style={{
+                maxHeight:'75%'
+            }}
         >
 
             <div 
-                className="card bg-warning border border-success border-5" 
+                className="card bg-warning custom-scrollbar-css" 
+                style={{
+                    maxHeight:'75vh'
+                }}
             >
                 <div
                     className='card-img-top move-right-shell'
                 >
                     <img 
-                        src={tyroneRunning} 
+                        src={tyroneRunningImage} 
                         className="pixelated move-right" 
                         alt="Tyrone running"
                         style={{
@@ -42,7 +48,7 @@ const GameFinished = ({button}) => {
                     />
                 </div>
                 <div 
-                    className="card-body"
+                    className="card-body text-success text-center user-select-none"
                 >
                     <h5 
                         className="card-title"

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     animateClass:'',
     displayHurt:false,
+    fruitIndex:0
 }
 
 const pickUpFruitSlice = createSlice({
@@ -13,7 +14,9 @@ const pickUpFruitSlice = createSlice({
             state.displayHurt = payload
         },
         setAnimation:(state, {payload})=>{
-            state.animateClass = payload
+            const {animateClass, fruitIndex} = payload
+            state.animateClass = animateClass
+            state.fruitIndex = fruitIndex
         }
     }
 })

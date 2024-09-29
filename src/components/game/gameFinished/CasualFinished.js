@@ -21,7 +21,7 @@ const CasualFinished = _ => {
 
     return (
         <div
-            className="d-flex flex-wrap gap-3"
+            className="d-flex flex-wrap gap-3 justify-content-center"
         >
             <button 
                 type="button"

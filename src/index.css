@@ -67,8 +67,8 @@
   }
 }
 
-body {
-  --s: 73px; /* control the size*/
+#root {
+  --s: 75px; /* control the size*/
   --c1: #fdc107;
   --c2: #198754;
   
@@ -80,6 +80,26 @@ body {
     radial-gradient(100% 100% at 0 100%,#0000, #0008 4%,var(--_g),var(--c1) 96%)
     var(--c1);
   background-size: var(--s) var(--s);
+}
+
+.custom-scrollbar-css{
+  overflow-y: scroll;
+}
+
+.custom-scrollbar-css::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #dc3545;
+  background-image: linear-gradient(to top, #dc3545 0%, #55141b 100%);
+}
+
+.text-background{
+  background-color: #fdc10790;
+  background-image: linear-gradient(to top, #fdc10790 0%, #fde59c90 100%);
+  border-color: #198754;
 }
 
 .pixelated{
@@ -98,7 +118,7 @@ body {
 
 .move-right-shell{
   position: relative;
-  height: 3rem;
+  min-height: 3rem;
   display: flex;
   overflow: hidden;
 }
@@ -111,7 +131,6 @@ body {
 
 .pick-up-fruit-shell{
   height: 48px;
-  background-image: url('./images/trees.png');
   display: flex;
   position: relative;
   overflow: hidden;

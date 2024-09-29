@@ -3,15 +3,21 @@ import { setAnimation, setDisplayHurt } from "./pickUpFruitSlice";
 
 export const activateAnimation = createAsyncThunk(
     'pickUpFruit/activateAnimation',
-    async (animationDuration, {getState, dispatch}) =>{
+    async ({animationDuration, fruitIndex}, {getState, dispatch}) =>{
         const state = getState()
         const {animateClass} = state.pickUpFruit
 
         if(animateClass===''){
-            dispatch(setAnimation('animate'))
+            dispatch(setAnimation({
+                animateClass:'animate', 
+                fruitIndex
+            }))
 
             setTimeout(()=>{
-                dispatch(setAnimation(''))
+                dispatch(setAnimation({
+                    animateClass:'',
+                    fruitIndex
+                }))
             }, animationDuration*1000)
         }
     }

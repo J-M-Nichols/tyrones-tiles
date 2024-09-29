@@ -7,15 +7,11 @@ import generateImageArray from "../generator/generateImageArray";
 
 export const handleCasualGameStart = createAsyncThunk(
     'game/handleCasualGameStart',
-    async (payload, {getState, dispatch}) => {
-        const state = getState()
-        const {gameSize} = state.game
-
+    async (payload, {dispatch}) => {
         dispatch(resetTurn())
         dispatch(resetFlippedTileIndex())
         dispatch(setSize(payload))
-
-        if(payload===gameSize) dispatch(setTiles(generateImageArray(gameSize)))
+        dispatch(setTiles(generateImageArray(payload)))
     }
 )
 

@@ -4,17 +4,33 @@ const Home = _ => {
             className="text-success d-flex gap-3 flex-column"
         >
             <section
-                className="bg-light rounded m-auto p-3"
+                className="text-background text-center rounded m-auto p-3 user-select-none border border-success border-3"
             >
                 <h1
-                    className="fw-bolder text-center"
+                    className="fw-bolder"
                 >Tyrone's Tiles</h1>
                 <article
                 
                 >
                     <p
-                        className="text-center"
+                        className=""
                     >Tyrone Osaurus Rex the T-Rex is very hungry but all of his food is stuck under tiles. Can you feed him in time?</p>
+                </article>
+            </section>
+            <section
+                className="text-background text-center rounded m-auto p-3 user-select-none border border-success border-3"
+            >
+                <h1
+                    className="fw-bolder"
+                >Casual</h1>
+                <article
+                
+                >
+                    <p
+                        className=""
+                    >
+                        Feed Tyrone Osaurus Rex casually by matching tiles at your own pace and at the difficulty you enjoy. Just be careful about which match you make, if you get it wrong then you'll hurt Tyrone.
+                    </p>
                 </article>
             </section>
         </section>
