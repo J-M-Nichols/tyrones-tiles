@@ -1,0 +1,10 @@
+{
+  "short_name": "Tyrone's Tiles",
+  "name": "Tyrone Osaurus Rex the T-Rex is very hungry but all of his food is stuck under tiles. Can you feed him in time?",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
