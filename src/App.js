@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setTiles } from "./features/tileSlice/tilesSlice";
 import Challenge from "./components/game/Challenge";
 import { handleChallengeGameStart } from "./features/handleGame";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   const location = useLocation()
@@ -29,6 +30,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/casual' element={<Casual />} />
           <Route exact path='/challenge' element={<Challenge />} />
+          <Route exact path='/about-me' element={<AboutMe />} />
         </Routes>
       </main>
     </div>
