@@ -35,7 +35,7 @@ const CasualFinished = _ => {
                         type="button"
                         className="btn btn-danger"
                         onClick={()=>playNextGame(size)}
-                    >{size} fruit</button>
+                    >{size} food</button>
                 )
             })}
         </div>
