@@ -18,7 +18,7 @@ export const handleCasualGameStart = createAsyncThunk(
 export const handleChallengeGameStart = createAsyncThunk(
     'game/handleChallengeGameStart',
     async (_, {dispatch}) => {
-        const level = localStorage.getItem('level') | 0
+        const level = Number(localStorage.getItem('level')) | 0
         
         dispatch(resetTurn())
         dispatch(resetFlippedTileIndex())
