@@ -10,6 +10,7 @@ const ChallengeGameCompleted = _ => {
     const dispatch = useDispatch()
 
     const replayChallenge = _ => {
+        localStorage.setItem('level', 0)
         dispatch(handleChallengeGameStart())
     }
 

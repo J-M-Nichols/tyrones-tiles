@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { resetTurn } from "./turnSlice";
-import { nextLevel, setSize, startGame } from "./gameSlice";
+import { nextLevel, setLevel, setSize } from "./gameSlice";
 import { resetFlippedTileIndex } from "./tileSlice/flippedTileIndexSlice";
 import { setTiles } from "./tileSlice/tilesSlice";
 import generateImageArray from "../generator/generateImageArray";
@@ -18,9 +18,11 @@ export const handleCasualGameStart = createAsyncThunk(
 export const handleChallengeGameStart = createAsyncThunk(
     'game/handleChallengeGameStart',
     async (_, {dispatch}) => {
+        const level = localStorage.getItem('level') | 0
+        
         dispatch(resetTurn())
         dispatch(resetFlippedTileIndex())
-        dispatch(startGame())
+        dispatch(setLevel(level))
     }
 )
 

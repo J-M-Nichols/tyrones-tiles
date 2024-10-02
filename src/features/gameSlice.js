@@ -20,6 +20,14 @@ const gameSlice = createSlice({
             
             state.gameSize = index+2
             state.gameLevel = level
+            localStorage.setItem('level', level)
+        },
+        setLevel: (state, {payload})=>{
+            const level = payload
+            const index = Math.floor(level/challengeSize)
+            
+            state.gameSize = index+2
+            state.gameLevel = level
         },
         setSize: (state, {payload})=>{
             state.gameSize = payload
@@ -27,5 +35,5 @@ const gameSlice = createSlice({
     }
 })
 
-export const {startGame, nextLevel, setSize} = gameSlice.actions
+export const {startGame, nextLevel, setLevel, setSize} = gameSlice.actions
 export default gameSlice.reducer
