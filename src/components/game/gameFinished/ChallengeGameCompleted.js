@@ -4,13 +4,16 @@ import Fireworks from "../../fireworks/Fireworks"
 import { AnimationDurationContext } from "../../../providers/animationDurationProvider"
 import { useDispatch } from "react-redux"
 import { handleChallengeGameStart } from "../../../features/handleGame"
+import { GitHubStorageHandlers } from "github-localstorage-handler"
+import trackedPaths from "../../../helpers/trackedPaths"
 
 const ChallengeGameCompleted = _ => {
     const {runDuration} = useContext(AnimationDurationContext)
     const dispatch = useDispatch()
+    const handlers = new GitHubStorageHandlers(...Object.keys(trackedPaths))
 
     const replayChallenge = _ => {
-        localStorage.setItem('level', 0)
+        handlers.clearAllPaths()
         dispatch(handleChallengeGameStart())
     }
 

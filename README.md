@@ -1,6 +1,8 @@
 # Tyrone's Tiles
 Tyrone Osaurus Rex the T-Rex is very hungry but all of his food is stuck under tiles. Can you feed him in time?
 
+[Play Now](https://j-m-nichols.github.io/tyrones-tiles/)
+
 ## Casual
 Feed Tyrone Osaurus Rex casually by matching tiles at your own pace and at the difficulty you enjoy. Just be careful about which match you make, if you get it wrong then you'll hurt Tyrone.
 

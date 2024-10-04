@@ -4,6 +4,8 @@ import { nextLevel, setLevel, setSize } from "./gameSlice";
 import { resetFlippedTileIndex } from "./tileSlice/flippedTileIndexSlice";
 import { setTiles } from "./tileSlice/tilesSlice";
 import generateImageArray from "../generator/generateImageArray";
+import { GitHubStorageHandler } from "github-localstorage-handler";
+import trackedPaths from "../helpers/trackedPaths";
 
 export const handleCasualGameStart = createAsyncThunk(
     'game/handleCasualGameStart',
@@ -18,7 +20,8 @@ export const handleCasualGameStart = createAsyncThunk(
 export const handleChallengeGameStart = createAsyncThunk(
     'game/handleChallengeGameStart',
     async (_, {dispatch}) => {
-        const level = Number(localStorage.getItem('level')) | 0
+        const levelHandler = new GitHubStorageHandler(trackedPaths.level)
+        const level = levelHandler.getNumber(0)
         
         dispatch(resetTurn())
         dispatch(resetFlippedTileIndex())

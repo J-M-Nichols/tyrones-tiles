@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 import challengeSize from "../helpers/challengeSize"
+import { GitHubStorageHandler } from "github-localstorage-handler"
+import trackedPaths from "../helpers/trackedPaths"
+
+const levelHandler = new GitHubStorageHandler(trackedPaths.level)
 
 const initialState = {
     gameSize:2,
@@ -20,7 +24,7 @@ const gameSlice = createSlice({
             
             state.gameSize = index+2
             state.gameLevel = level
-            localStorage.setItem('level', level)
+            levelHandler.setNumber(level)
         },
         setLevel: (state, {payload})=>{
             const level = payload
